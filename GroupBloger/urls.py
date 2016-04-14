@@ -20,6 +20,7 @@ from blog.views import test
 from blog.views import post_list
 from blog.views import post_detail
 from blog.views import no_path
+from settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,6 +28,7 @@ urlpatterns = [
     url(r'^test/', test),
     url(r'^blog/$', post_list),
     url(r'^blog/(?P<id>\d+)/$', post_detail),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',{'document_root':MEDIA_ROOT}),
     # url(r'^post/new/$', views.new_post, name='new_post'),
 
 ]
