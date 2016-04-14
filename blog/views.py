@@ -17,4 +17,4 @@ def post_detail(request,id):
     # clock up the number of post views
     post.views += 1
     post.save()
-    return render(request, "blogdetail.html",{'post' : post} )
+    return render(request, "blogdetails.html",{'post' : post} )
