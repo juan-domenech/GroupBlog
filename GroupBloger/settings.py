@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'django_forms_bootstrap',
+    'accounts',
 ]
 
 SITE_ID = 1
@@ -131,3 +132,8 @@ STATIC_URL = '/static/'
 
 # Our static files folder
 STATICFILES_DIRS=( os.path.join(BASE_DIR,"static"),)
+
+AUTH_USER_MODEL = 'accounts.User'
+
+#AUTHENTICATION_BACKENDS = ('accounts.backends.EmailAuth',)
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend','accounts.backends.EmailAuth',)
