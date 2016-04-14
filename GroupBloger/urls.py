@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from blog import views as blog_views
 from blog.views import test, post_list, post_detail, no_path, new_post, edit_post
 from settings import MEDIA_ROOT
+from accounts.views import login
 
 
 urlpatterns = [
@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^blog/(?P<id>\d+)/$', post_detail),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve',{'document_root':MEDIA_ROOT}),
     url(r'^post/new/$', new_post, name='new_post'),
-    url(r'^post/edit/(?P<id>\d+)/$', edit_post, name='edit')
+    url(r'^post/edit/(?P<id>\d+)/$', edit_post, name='edit'),
+    url(r'^login/$', login, name='login'),
 
 ]
