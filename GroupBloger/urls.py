@@ -18,12 +18,13 @@ from django.contrib import admin
 from blog import views as blog_views
 from blog.views import test
 from blog.views import post_list
+from blog.views import post_detail
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^test/', test),
     url(r'^blog/$', post_list),
-    # url(r'^blog/(?P<id>\d+)/$', views.post_details),
+    url(r'^blog/(?P<id>\d+)/$', post_detail),
     # url(r'^post/new/$', views.new_post, name='new_post'),
 
 ]
