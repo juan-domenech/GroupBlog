@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^blog/$', blog_views.post_list),
     # url(r'^blog/(?P<id>\d+)/$', views.post_details),
     # url(r'^post/new/$', views.new_post, name='new_post'),
+    
 ]
