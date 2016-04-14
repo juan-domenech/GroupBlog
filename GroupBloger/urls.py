@@ -18,5 +18,7 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^blog/'),
+    # url(r'^blog/$', views.post_list),
+    # url(r'^blog/(?P<id>\d+)/$', views.post_details),
+    # url(r'^post/new/$', views.new_post, name='new_post'),
 ]
