@@ -8,10 +8,14 @@ def login(request):
     if request.method == 'POST':
         form = UserLoginForm(request.POST)
         if form.is_valid():
+
             print "eee",request.POST.get('email')
             print "ppp",request.POST.get('password')
+
             user = auth.authenticate(email=request.POST.get('email'),
                                      password=request.POST.get('password'))
+
+            print user
 
             if user is not None:
                 auth.login(request, user)
@@ -19,6 +23,8 @@ def login(request):
                 return redirect(reverse('profile'))
             else:
                 form.add_error(None, "Your email or password was not recognised")
+        else:
+            form.add_error(None, "Form invalid")
 
     else:
         form = UserLoginForm()
