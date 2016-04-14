@@ -26,9 +26,9 @@ def new_post(request):
         if form.is_valid():
             post = form.save(commit=False)
             # Connect to the new AUTH method (using email instead of username)
-            #post.author = request.user
-            #post.author = auth.get_user(request)
-            #print post.author
+            post.author = request.user
+            # post.author = auth.get_user(request)
+            # print post.author
             post.published_date = timezone.now()
             post.save()
             return redirect(post_detail, post.pk)
